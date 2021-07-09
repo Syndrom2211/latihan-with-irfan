@@ -2,7 +2,8 @@
 
 if( isset( $_GET[ 'Submit' ] ) ) {
 	// Get input
-	$id = $_GET[ 'id' ];
+	// patching SQLi menggunakan metode Casting (abaikan string / text)
+	$id = (int)$_GET[ 'id' ];
 
 	// Check database
 	$getid  = "SELECT first_name, last_name FROM users WHERE user_id = '$id';";
