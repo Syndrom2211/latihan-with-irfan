@@ -2,7 +2,8 @@
 
 if( isset( $_REQUEST[ 'Submit' ] ) ) {
 	// Get input
-	$id = $_REQUEST[ 'id' ];
+	// patching SQLi menggunakan metode Casting (abaikan string / text)
+	$id = (int)$_REQUEST[ 'id' ];
 
 	// Check database
 	$query  = "SELECT first_name, last_name FROM users WHERE user_id = '$id';";
